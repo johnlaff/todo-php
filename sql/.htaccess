@@ -1,0 +1,3 @@
+# Bloqueia o acesso direto a esta pasta pelo navegador (Apache 2.4 / XAMPP).
+# Impede o download do schema.sql via URL.
+Require all denied

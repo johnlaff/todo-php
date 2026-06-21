@@ -1,0 +1,4 @@
+# Bloqueia o acesso direto a esta pasta pelo navegador (Apache 2.4 / XAMPP).
+# O PHP continua incluindo estes arquivos normalmente (inclusão é em disco,
+# não passa pelo Apache); apenas o acesso via URL fica negado.
+Require all denied

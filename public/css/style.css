@@ -1,0 +1,485 @@
+/* =========================================================================
+   Gerenciador de Tarefas
+   Folha de estilo própria do projeto.
+   Paleta: tons de índigo/teal sobre fundo claro, com cartões arredondados.
+   ========================================================================= */
+
+/* ---- Variáveis de tema --------------------------------------------------- */
+:root {
+    --cor-fundo: #eef1f7;
+    --cor-superficie: #ffffff;
+    --cor-primaria: #4f46e5;
+    --cor-primaria-escura: #4338ca;
+    --cor-acento: #0ea5a4;
+    --cor-perigo: #e11d48;
+    --cor-texto: #1f2433;
+    --cor-texto-suave: #6b7280;
+    --cor-borda: #e2e6ef;
+    --cor-sucesso-bg: #e7f8ef;
+    --cor-sucesso-tx: #11713f;
+    --cor-erro-bg: #fdecef;
+    --cor-erro-tx: #a4123a;
+    --sombra: 0 10px 30px rgba(31, 36, 51, 0.08);
+    --sombra-sutil: 0 2px 8px rgba(31, 36, 51, 0.06);
+    --raio: 14px;
+    --raio-pequeno: 9px;
+    --largura-max: 980px;
+}
+
+/* ---- Reset básico -------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---- Barra superior ------------------------------------------------------ */
+.topbar {
+    background: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-sutil);
+}
+
+.topbar__inner {
+    max-width: var(--largura-max);
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+.brand__mark {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-acento));
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.nav__user {
+    color: var(--cor-texto-suave);
+    font-size: 0.92rem;
+}
+
+.nav__link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--cor-texto);
+    padding: 0.35rem 0.15rem;
+}
+
+.nav__link:hover {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+.nav__link--ghost {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    padding: 0.4rem 0.85rem;
+}
+
+/* Botão de logout estilizado para combinar com os links do menu. */
+.nav__form {
+    display: inline;
+    margin: 0;
+}
+
+.nav__logout {
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--cor-texto);
+    background: transparent;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    padding: 0.4rem 0.85rem;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.nav__logout:hover {
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+/* ---- Container principal ------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--largura-max);
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    flex: 1;
+}
+
+/* ---- Mensagens flash ----------------------------------------------------- */
+.alert {
+    border-radius: var(--raio-pequeno);
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+}
+
+.alert--success {
+    background: var(--cor-sucesso-bg);
+    color: var(--cor-sucesso-tx);
+    border-color: #bcead0;
+}
+
+.alert--error {
+    background: var(--cor-erro-bg);
+    color: var(--cor-erro-tx);
+    border-color: #f5c2cd;
+}
+
+/* ---- Cartões ------------------------------------------------------------- */
+.card {
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    padding: 2rem;
+}
+
+.card--auth {
+    max-width: 420px;
+    margin: 2.5rem auto;
+}
+
+.card__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.card__subtitle {
+    color: var(--cor-texto-suave);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.card__foot {
+    margin-top: 1.4rem;
+    text-align: center;
+    color: var(--cor-texto-suave);
+    font-size: 0.92rem;
+}
+
+/* ---- Formulários --------------------------------------------------------- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.05rem;
+}
+
+.form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.form__hint {
+    color: var(--cor-texto-suave);
+    font-size: 0.8rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--cor-texto);
+    background: #fbfcfe;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    padding: 0.7rem 0.85rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* ---- Botões -------------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: var(--raio-pequeno);
+    padding: 0.6rem 1.1rem;
+    background: #eef1f7;
+    color: var(--cor-texto);
+    transition: transform 0.05s, background 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+    text-decoration: none;
+    border-color: var(--cor-borda);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn--primary {
+    background: var(--cor-primaria);
+    color: #fff;
+}
+
+.btn--primary:hover {
+    background: var(--cor-primaria-escura);
+    border-color: transparent;
+}
+
+.btn--ghost {
+    background: transparent;
+    border-color: var(--cor-borda);
+    color: var(--cor-texto-suave);
+}
+
+.btn--danger {
+    background: transparent;
+    border-color: #f3c4cf;
+    color: var(--cor-perigo);
+}
+
+.btn--danger:hover {
+    background: var(--cor-perigo);
+    color: #fff;
+    border-color: transparent;
+}
+
+.btn--small {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.btn--block {
+    width: 100%;
+}
+
+/* ---- Dashboard ----------------------------------------------------------- */
+.dash__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.dash__title {
+    font-size: 1.6rem;
+}
+
+.dash__subtitle {
+    color: var(--cor-texto-suave);
+}
+
+/* ---- Estado vazio -------------------------------------------------------- */
+.empty {
+    background: var(--cor-superficie);
+    border: 1px dashed var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.empty__text {
+    color: var(--cor-texto-suave);
+    margin-bottom: 1.2rem;
+}
+
+/* ---- Lista de tarefas ---------------------------------------------------- */
+.tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.task {
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-left: 4px solid var(--cor-primaria);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra-sutil);
+    padding: 1.1rem 1.3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.task--done {
+    border-left-color: var(--cor-acento);
+    background: #fbfdfd;
+}
+
+.task--done .task__title {
+    text-decoration: line-through;
+    color: var(--cor-texto-suave);
+}
+
+.task__main {
+    flex: 1;
+    min-width: 240px;
+}
+
+.task__title {
+    font-size: 1.12rem;
+    margin-bottom: 0.25rem;
+}
+
+.task__desc {
+    color: var(--cor-texto-suave);
+    font-size: 0.93rem;
+    margin-bottom: 0.6rem;
+    white-space: pre-line;
+}
+
+.task__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.task__date {
+    color: var(--cor-texto-suave);
+    font-size: 0.82rem;
+}
+
+.task__actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Os formulários de concluir/excluir ficam inline junto do botão de editar. */
+.task__form {
+    display: inline;
+    margin: 0;
+}
+
+/* ---- Selo de status ------------------------------------------------------ */
+.badge {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+}
+
+.badge--pending {
+    background: #fff3d6;
+    color: #97640a;
+}
+
+.badge--done {
+    background: var(--cor-sucesso-bg);
+    color: var(--cor-sucesso-tx);
+}
+
+/* ---- Rodapé -------------------------------------------------------------- */
+.footer {
+    text-align: center;
+    color: var(--cor-texto-suave);
+    font-size: 0.85rem;
+    padding: 1.5rem 1.25rem;
+    border-top: 1px solid var(--cor-borda);
+    background: var(--cor-superficie);
+}
+
+/* ---- Responsividade ------------------------------------------------------ */
+@media (max-width: 600px) {
+    .topbar__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task {
+        flex-direction: column;
+    }
+
+    .task__actions {
+        width: 100%;
+    }
+
+    .dash__head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

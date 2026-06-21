@@ -1,0 +1,21 @@
+# Editores e IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+
+# Arquivos de sistema operacional
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# Logs e temporários
+*.log
+*.cache
+/tmp/
+
+# Configuração local sensível (caso seja separada futuramente)
+config/config.local.php

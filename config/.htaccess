@@ -1,0 +1,3 @@
+# Bloqueia o acesso direto a esta pasta pelo navegador (Apache 2.4 / XAMPP).
+# Protege o config.php (credenciais do banco) de ser acessado via URL.
+Require all denied
