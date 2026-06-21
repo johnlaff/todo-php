@@ -247,6 +247,12 @@ O roteamento é feito por _query string_ (`index.php?r=controller/acao`), dispen
 
 ---
 
+## 📄 Documentação adicional
+
+- [Conclusão — explicação do código e das estruturas utilizadas](docs/CONCLUSAO.md)
+
+---
+
 <div align="center">
 
 Projeto acadêmico — disciplina de **Aplicações para a Internet**.
